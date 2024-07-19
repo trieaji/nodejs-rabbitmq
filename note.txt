@@ -1,0 +1,36 @@
+Direct Exchange
+- Direct Exchange adalah tipe exchange yang ketika menerima data, dia akan merutekan data tersebut ke Queue yang sesuai dengan routing key saat proses binding
+- Jika kita mengirim data ke Exchange dengan routing key yang tidak ada di Binding ke Queue, maka secara otomatis data akan dikirim ke Alternate-Exchange, jika tidak ada Alternate Exchange, maka data akan hilang secara otomatis
+
+Routing
+- Saat melakukan perutean menggunakan Direct Exchange, tidak ada batasan untuk melakukan binding ke Queue yang sama, bahkan menggunakan routing key yang berbeda
+- Misal, kita membuat Queue baru bernama all_notification, lalu membuat binding untuk routing key email, sms dan whatsapp
+
+Message/Publish Message
+- Message adalah data yang kita kirimkan ke rabbitmq
+- Seperti yang sudah dibahas di awal, untuk mengirim data atau publish message, hal ini dilakukan ke Exchange
+
+Message Format
+- Routing Key, informasi routing key yang digunakan untuk jenis Direct Exchange untuk merutekan message ke Queue
+- Headers, informasi tambahkan key-value yang bebas ditambahkan
+- Properties, mirip seperti Headers, namun sudah baku key nya
+- Payload, data yang dikirim oleh Producer
+
+Consume Message
+- Membaca data dari Queue disebut dengan Consume Message
+- Message yang sudah di Consume, otomatis akan hilang dari Queue
+- Queue itu merupakan struktur data dalam bentuk antrian, artinya siapa yang pertama masuk, dia yang akan diproses duluan
+
+Fanout Exchange
+- Fanout Exchange adalah tipe Exchange yang akan selalu merutekan setiap data ke seluruh Queue
+- Artinya setiap data yang kita kirim ke Exchange, akan diteruskan ke seluruh Queue
+- Fanout Exchange mirip seperti Broadcast, dimana semua Queue akan menerima data yang sama
+
+Topic Exchange
+- Topic Exchange merupakan Exchange mirip dengan Direct Exchange, dimana Exchange akan merutekan message ke Queue sesuai dengan routine key nya
+- Hanya saja pada Topic Exchange, routing key menggunakan kata-kata yang dipisahkan menggunakan titik
+- Misal, customers.event.update, customers.event.new, customers.event.delete
+
+Header Exchange
+- Header Exchange adalah Exchange yang melakukan perutean data ke Queue menggunakan Header di Message
+- Exchange akan merutekan sesuai dengan Attribute di Binding yang sesuai dengan Header di Message
