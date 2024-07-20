@@ -34,3 +34,18 @@ Topic Exchange
 Header Exchange
 - Header Exchange adalah Exchange yang melakukan perutean data ke Queue menggunakan Header di Message
 - Exchange akan merutekan sesuai dengan Attribute di Binding yang sesuai dengan Header di Message
+
+Round-robin dispatching
+- Salah satu keuntungan menggunakan Queue adalah, kita bisa menjalankan Consumer lebih dari satu
+- Dengan kemampuan ini, jika kita bisa menjadikan pemrosesan data di Queue bisa dilakukan secara paralel dan dilakukan lebih cepat
+
+Policy
+- Saat kita membuat Exchange atau Queue, kita bisa menambahkan Arguments
+- Policy adalah fitur dimana kita bisa menambahkan Arguments secara otomatis pada Exchange atau Queue secara otomatis tanpa harus menambahkan satu per satu secara manual
+
+User Management
+- (none) -> Tidak bisa mengakses web management
+- management -> Bisa mengakses web management, mengakses virtual host yang diperbolehkan, exchange, queue dan bindings di virtual host yang diperbolehkan
+- policymaker -> semua di management, plus mengelola policy
+- monitoring -> semua di management, dan melihat semua informasi di virtual host
+- administrator -> bisa melakukan apapun
